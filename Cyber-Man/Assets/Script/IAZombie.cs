@@ -5,6 +5,10 @@ using UnityEngine;
 public class IAZombie : MonoBehaviour
 {
     private UnityEngine.AI.NavMeshAgent agent;
+    public Transform target;
+    
+    public int pv = 200;
+
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -12,14 +16,9 @@ public class IAZombie : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (target != null)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                agent.SetDestination(hit.point);
-            }
+            agent.SetDestination(target.position);
         }
     }
 }
