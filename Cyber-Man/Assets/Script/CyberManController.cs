@@ -12,17 +12,23 @@ public class CyberManController : MonoBehaviour
     public float Jump = 2f;
     public float Gravite = 10f;
     private Animator Anim;
+    private AffichageSouris _affichageSouris;
 
     // Start is called before the first frame update
     void Start()
     {
         Player = GetComponent<CharacterController>();
         Anim = GetComponent<Animator>();
+        _affichageSouris = FindObjectOfType<AffichageSouris>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_affichageSouris.cursorVisible)
+        {
+            return;
+        }
         // MOVE
         
         DirectionDeplacement.x = Input.GetAxis("Horizontal");

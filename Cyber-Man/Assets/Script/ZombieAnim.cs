@@ -17,7 +17,7 @@ public class ZombieAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(previousPosition);
+        // Debug.Log(previousPosition);
         // ANIMATION
         if (previousPosition != transform.position)
         {
