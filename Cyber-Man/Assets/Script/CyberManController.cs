@@ -12,20 +12,20 @@ public class CyberManController : MonoBehaviour
     public float Jump = 2f;
     public float Gravite = 10f;
     private Animator Anim;
-    private AffichageSouris _affichageSouris;
+    private PauseMenuInGame _pauseMenuInGame;
 
     // Start is called before the first frame update
     void Start()
     {
         Player = GetComponent<CharacterController>();
         Anim = GetComponent<Animator>();
-        _affichageSouris = FindObjectOfType<AffichageSouris>();
+        _pauseMenuInGame = FindObjectOfType<PauseMenuInGame>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_affichageSouris.cursorVisible)
+        if (_pauseMenuInGame.isPaused)
         {
             return;
         }

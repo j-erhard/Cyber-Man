@@ -14,7 +14,7 @@ public class CyberLaser : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
@@ -27,12 +27,13 @@ public class CyberLaser : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+        
+            Debug.Log("Raycast hit object: " + hit.collider.gameObject.name);
+            Debug.Log(hit.collider.gameObject.layer + " nico jte dbz " + LayerMask.NameToLayer(layerToDestroy.ToString()));
             // Vérifier si l'objet doit être détruit en fonction du layer
-            Debug.Log(hit.collider.gameObject.layer.ToString());
-            if (hit.collider.gameObject.layer == layerToDestroy)
+            if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Zombie")
             {
                 Destroy(hit.collider.gameObject);
-                return; // Sortir de la méthode après la destruction de l'objet
             }
 
             var boo = Instantiate(explosionPrefab, hit.point, Quaternion.identity);
