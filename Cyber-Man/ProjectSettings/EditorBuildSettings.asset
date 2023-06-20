@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: aa3a407317f152f4e8f66a990f075410
   - enabled: 1
-    path: Assets/Scenes/COPY-N-LAST.unity
-    guid: a8dc4ec5bb139ae4f98002434d00f53a
+    path: Assets/Scenes/CyberScene.unity
+    guid: b9fabb6d92eea484094fa0d7ffd80085
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9eb07e2d669e9c94e9d7d3c782a916f7,
       type: 2}
