@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class CyberLaser : MonoBehaviour
 {
     public GameObject explosionPrefab;
-    public LayerMask layerToDestroy;
 
     public TextMeshProUGUI  textMun;
 
@@ -31,6 +30,8 @@ public class CyberLaser : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f)
+            return;
         if (Input.GetMouseButtonDown(0) && !progressBar.gameObject.activeSelf)
         {
             if (munition_act < 12)
@@ -50,7 +51,7 @@ public class CyberLaser : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !progressBar.gameObject.activeSelf)
+        if (Input.GetKeyDown(KeyCode.R) && !progressBar.gameObject.activeSelf && munition_act != 0)
         {
             AudioSource.PlayClipAtPoint(audioClip2, transform.position);
             StartProgressBar();
@@ -89,12 +90,28 @@ public class CyberLaser : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
         
-            Debug.Log("Raycast hit object: " + hit.collider.gameObject.name);
-            Debug.Log(hit.collider.gameObject.layer + " nico jte dbz " + LayerMask.NameToLayer(layerToDestroy.ToString()));
             // Vérifier si l'objet doit être détruit en fonction du layer
-            if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Zombie")
+            if (hit.collider.gameObject.name == "head")
             {
-                Destroy(hit.collider.gameObject);
+                IAZombie iaZombie = hit.collider.gameObject.transform.parent.GetComponent<IAZombie>();
+                Debug.Log(iaZombie.pv);
+                iaZombie.pv -= 150;
+                Debug.Log(iaZombie.pv);
+                if (iaZombie.pv <= 0)
+                {
+                    Destroy(hit.collider.gameObject.transform.parent.gameObject);
+                }
+            }
+            if (hit.collider.gameObject.name == "body")
+            {
+                IAZombie iaZombie = hit.collider.gameObject.transform.parent.GetComponent<IAZombie>();
+                Debug.Log(iaZombie.pv);
+                iaZombie.pv -= 50;
+                Debug.Log(iaZombie.pv);
+                if (iaZombie.pv <= 0)
+                {
+                    Destroy(hit.collider.gameObject.transform.parent.gameObject);
+                }
             }
 
             var boo = Instantiate(explosionPrefab, hit.point, Quaternion.identity);
