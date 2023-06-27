@@ -7,6 +7,7 @@ public class PauseMenuInGame : MonoBehaviour
 {
 
     public GameObject PauseMenuInGamelol;
+    public GameObject OptionMenu;
 
     public bool isPaused = false;
     private GUIStyle labelStyle;
@@ -14,7 +15,7 @@ public class PauseMenuInGame : MonoBehaviour
     void Start()
     {
         PauseMenuInGamelol.SetActive(false);
-
+        OptionMenu.SetActive(false);
         
         ShowCursor(false);
         // Time of the scene
@@ -68,6 +69,18 @@ public class PauseMenuInGame : MonoBehaviour
         ShowCursor(isPaused);
     }
 
+    public void OptionGame()
+    {
+        PauseMenuInGamelol.SetActive(false);
+        OptionMenu.SetActive(true);
+    }
+
+
+     public void QuitOptionGame()
+    {
+        OptionMenu.SetActive(false);
+        PauseMenuInGamelol.SetActive(true);
+    }
 
     public void QuitGame()
     {
