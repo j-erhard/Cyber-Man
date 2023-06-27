@@ -14,6 +14,8 @@ public class CyberManController : MonoBehaviour
     private Animator Anim;
     private PauseMenuInGame _pauseMenuInGame;
 
+    public float pv = 200;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,17 +81,13 @@ public class CyberManController : MonoBehaviour
         }
     }
 
-    // private void Shoot()
-    // {
-    //     RaycastHit hit;
-    //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //
-    //     if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
-    //     {
-    //         Destroy(hit.collider.gameObject);
-    //         var boo = Instantiate(explosionPrefab, hit.point, Quaternion.identity);
-    //         boo.transform.up = hit.normal;
-    //     }
-    // }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.layer);
+        if (collision.gameObject.CompareTag("Zombie"))
+        {
+            Debug.Log("frfrf");
+        }
+    }
 
 }
