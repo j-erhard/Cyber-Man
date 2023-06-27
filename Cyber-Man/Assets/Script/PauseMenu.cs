@@ -5,17 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    public GameObject PauseMenuH;
 
     public void PlayGame()
     {
-            SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
-    //public void SettingsMenu()
-    //{
-        //SceneManager.LoadScene("SettingsMenu");
-    //}
+
+    public void SettingsMenu()
+    {
+        PauseMenuH.SetActive(false);
+    }
+
+
+      public void QuitOptionMenu()
+    {
+        PauseMenuH.SetActive(true);
+    }
 
     public void QuitGame()
     {

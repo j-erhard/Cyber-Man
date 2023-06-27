@@ -7,12 +7,14 @@ public class PauseMenuInGame : MonoBehaviour
 {
 
     public GameObject PauseMenuInGamelol;
+
     public bool isPaused = false;
     private GUIStyle labelStyle;
     // Start is called before the first frame update
     void Start()
     {
         PauseMenuInGamelol.SetActive(false);
+
         
         ShowCursor(false);
         // Time of the scene
