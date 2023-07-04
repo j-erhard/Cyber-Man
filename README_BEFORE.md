@@ -18,5 +18,6 @@ Déplacement du personnage :
 
 Assurez-vous de recharger régulièrement votre arme pour éviter de vous retrouver sans munitions au mauvais moment.
 Utilisez les obstacles du terrain à votre avantage.
+Essayez de viser la tête ! Les zombies prendront plus de dégats !
 
 Amusez-vous bien et bonne chance dans votre mission de protection du coffre !
