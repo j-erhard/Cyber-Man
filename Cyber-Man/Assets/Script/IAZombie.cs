@@ -33,6 +33,10 @@ public class IAZombie : MonoBehaviour
         float distance = Vector3.Distance(transform.position, playerTransform.position);
         if (distance <= proximityThreshold)
         {
+            if (player.pv <= 0)
+            {
+                SceneManager.LoadScene(2);
+            }
             player.pv -= 0.08f;
             progressBar.rectTransform.sizeDelta = new Vector2(player.pv, progressBar.rectTransform.sizeDelta.y);
             float newXValue = -(200 - player.pv) / 2f;
