@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CyberManController : MonoBehaviour
 {
-    public float Speed = 2f;
+    public float Speed = 1.5f;
     public Vector3 DirectionDeplacement = Vector3.zero;
     public CharacterController Player;
     public float Sensi = 2f;

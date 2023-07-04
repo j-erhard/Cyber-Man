@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 // using UnityEngine.UIElements;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class IAZombie : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class IAZombie : MonoBehaviour
     public int pv = 200;
     
     public CyberManController player;
-    public float proximityThreshold = 3f;
+    public float proximityThreshold = 10f;
     public Image progressBar;
     public Image progressBar2;
 
@@ -32,7 +33,7 @@ public class IAZombie : MonoBehaviour
         float distance = Vector3.Distance(transform.position, playerTransform.position);
         if (distance <= proximityThreshold)
         {
-            player.pv -= 0.05f;
+            player.pv -= 0.08f;
             progressBar.rectTransform.sizeDelta = new Vector2(player.pv, progressBar.rectTransform.sizeDelta.y);
             float newXValue = -(200 - player.pv) / 2f;
             Vector3 newPosition = new Vector3(newXValue, progressBar.rectTransform.localPosition.y, progressBar.rectTransform.localPosition.z);
@@ -43,7 +44,11 @@ public class IAZombie : MonoBehaviour
         distance = Vector3.Distance(transform.position, target.position);
         if (distance <= proximityThreshold)
         {
-            player.nb_vie_target -= 0.04f;
+            if (player.nb_vie_target <= 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+            player.nb_vie_target -= 0.02f;
             progressBar2.rectTransform.sizeDelta = new Vector2(player.nb_vie_target, progressBar2.rectTransform.sizeDelta.y);
             float newXValue = -(200 - player.nb_vie_target) / 2f;
             Vector3 newPosition = new Vector3(newXValue, progressBar2.rectTransform.localPosition.y, progressBar2.rectTransform.localPosition.z);
