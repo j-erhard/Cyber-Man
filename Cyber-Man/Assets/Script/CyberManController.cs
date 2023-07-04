@@ -13,6 +13,7 @@ public class CyberManController : MonoBehaviour
     public float Gravite = 10f;
     private Animator Anim;
     private PauseMenuInGame _pauseMenuInGame;
+    public float nb_vie_target = 200;
 
     public float pv = 200;
 
