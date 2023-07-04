@@ -1,2 +1,0 @@
-- Un fichier README_TECH détaillant la technique du projet et me permettant de rapidement comprendre sa structure, ses éléments importants : Combien de scènes utilisez-vous, quel sont leur rôle ? Quels sont les managers ou scripts importants du projet ? Sur quels gameobjects se trouvent-ils ? Par où dois-je commencer à regarder pour dérouler la pelote de laine ?
-Pas besoin d'être hyper exhaustif si votre code est correctement commenté, il s'agit d'expliquer globalement comment votre projet est fait et géré.
