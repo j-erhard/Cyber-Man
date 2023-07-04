@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CyberScene.unity
     guid: b9fabb6d92eea484094fa0d7ffd80085
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: b78ad54cc23c10d48b90ccdeff7d023f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9eb07e2d669e9c94e9d7d3c782a916f7,
       type: 2}
