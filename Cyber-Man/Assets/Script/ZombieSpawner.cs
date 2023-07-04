@@ -28,7 +28,7 @@ public class ZombieSpawner : MonoBehaviour
             yield return new WaitForSeconds(3f);
             textWave.enabled = false;
             
-            yield return new WaitForSeconds(timeBetweenWaves);
+            yield return new WaitForSeconds(timeBetweenWaves + currentWave * 5);
 
             for (int i = 0; i < waveSizes[currentWave, 0]; i++)
             {

@@ -1,6 +1,4 @@
-using TMPro;
 using UnityEngine;
-// using UnityEngine.UIElements;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +21,7 @@ public class IAZombie : MonoBehaviour
 
     void Update()
     {
+        // SET la target (soit le joueur soit le coffre)
         if (target != null)
         {
             agent.SetDestination(target.position);
@@ -30,6 +29,7 @@ public class IAZombie : MonoBehaviour
 
         Transform playerTransform = player.transform;
         
+        // Si un zombie est trop proche du joueur il lui met des dégats
         float distance = Vector3.Distance(transform.position, playerTransform.position);
         if (distance <= proximityThreshold)
         {
@@ -38,13 +38,14 @@ public class IAZombie : MonoBehaviour
                 SceneManager.LoadScene(2);
             }
             player.pv -= 0.08f;
+            // affichage des la barre de vie
             progressBar.rectTransform.sizeDelta = new Vector2(player.pv, progressBar.rectTransform.sizeDelta.y);
             float newXValue = -(200 - player.pv) / 2f;
             Vector3 newPosition = new Vector3(newXValue, progressBar.rectTransform.localPosition.y, progressBar.rectTransform.localPosition.z);
             progressBar.rectTransform.localPosition = newPosition;
-
         }
         
+        // Si un zombie est trop proche du coffre il lui met des dégats
         distance = Vector3.Distance(transform.position, target.position);
         if (distance <= proximityThreshold)
         {
@@ -53,11 +54,11 @@ public class IAZombie : MonoBehaviour
                 SceneManager.LoadScene(2);
             }
             player.nb_vie_target -= 0.02f;
+            // affichage des la barre de vie
             progressBar2.rectTransform.sizeDelta = new Vector2(player.nb_vie_target, progressBar2.rectTransform.sizeDelta.y);
             float newXValue = -(200 - player.nb_vie_target) / 2f;
             Vector3 newPosition = new Vector3(newXValue, progressBar2.rectTransform.localPosition.y, progressBar2.rectTransform.localPosition.z);
             progressBar2.rectTransform.localPosition = newPosition;
-
         }
     }
 }

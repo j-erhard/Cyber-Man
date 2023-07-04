@@ -7,17 +7,13 @@ using UnityEngine.UI;
 public class CyberLaser : MonoBehaviour
 {
     public GameObject explosionPrefab;
-
     public TextMeshProUGUI  textMun;
-
     public float munition_act = 0;
-    
     public Image progressBar;
     public float duration = 1f;
     private float timer = 0f;
     
     // AUDIO
-    
     public AudioClip audioClip1;
     private AudioSource audioSource1;
     public AudioClip audioClip2;
@@ -32,11 +28,11 @@ public class CyberLaser : MonoBehaviour
     {
         if (Time.timeScale == 0f)
             return;
+        //tirer
         if (Input.GetMouseButtonDown(0) && !progressBar.gameObject.activeSelf)
         {
             if (munition_act < 12)
             {
-                
                 AudioSource.PlayClipAtPoint(audioClip1, transform.position);
                 Shoot();
                 munition_act += 1;
@@ -51,6 +47,7 @@ public class CyberLaser : MonoBehaviour
             }
         }
 
+        // recharger
         if (Input.GetKeyDown(KeyCode.R) && !progressBar.gameObject.activeSelf && munition_act != 0)
         {
             AudioSource.PlayClipAtPoint(audioClip2, transform.position);
@@ -91,6 +88,7 @@ public class CyberLaser : MonoBehaviour
         {
         
             // Vérifier si l'objet doit être détruit en fonction du layer
+            // dégats sur le zombie différents en fonction de l'endroit touché
             if (hit.collider.gameObject.name == "head")
             {
                 IAZombie iaZombie = hit.collider.gameObject.transform.parent.GetComponent<IAZombie>();

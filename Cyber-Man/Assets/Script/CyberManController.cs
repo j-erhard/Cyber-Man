@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CyberManController : MonoBehaviour
 {
@@ -15,7 +12,6 @@ public class CyberManController : MonoBehaviour
     private Animator Anim;
     private PauseMenuInGame _pauseMenuInGame;
     public float nb_vie_target = 200;
-
     public float pv = 200;
 
     // Start is called before the first frame update
@@ -75,21 +71,10 @@ public class CyberManController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Anim.SetBool("ClickLeft", true);
-            // Shoot();
         }
         else
         {
             Anim.SetBool("ClickLeft", false);
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject.layer);
-        if (collision.gameObject.CompareTag("Zombie"))
-        {
-            Debug.Log("frfrf");
-        }
-    }
-
 }
