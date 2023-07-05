@@ -35,7 +35,7 @@ public class IAZombie : MonoBehaviour
         {
             if (player.pv <= 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
             }
             player.pv -= 0.08f;
             // affichage des la barre de vie
@@ -51,7 +51,7 @@ public class IAZombie : MonoBehaviour
         {
             if (player.nb_vie_target <= 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
             }
             player.nb_vie_target -= 0.02f;
             // affichage des la barre de vie
